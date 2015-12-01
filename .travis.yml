@@ -1,0 +1,37 @@
+sudo: false
+language: python
+python:
+- 2.6
+- 2.7
+- 3.3
+- 3.4
+- 3.5
+- nightly
+- pypy
+
+env:
+  global:
+    - PIP_CACHE="$HOME/.pip_cache"'
+
+matrix:
+  allow_failures:
+  - python: nightly
+
+cache:
+  directories:
+    - $HOME/.pip_cache
+
+before_install:
+  - mkdir -p $PIP_CACHE
+
+install:
+- pip install -U pip
+- pip install -r test_requirements.txt --cache-dir $PIP_CACHE
+
+script:
+- py.test
+
+notifications:
+  email: false
+  slack:
+    secure: LcTTbTj0Px0/9Bs/S/uwbhkdULlj1YVdHnU8F/kOa3bq2QdCTptqB719r6BnzHvW+QGyADvDZ25UncVXFuLuHY67ZYfmyZ/H2cj0nrRSuYdPct0avhVbT/3s50GlNWK5qkfZDuqw6szYTFrgFWJcr5dl7Zf6Vovcvd38uaYOdno=

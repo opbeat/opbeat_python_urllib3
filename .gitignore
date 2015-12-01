@@ -1,0 +1,15 @@
+*.pyc
+*.log
+*.egg
+*.db
+*.pid
+.coverage
+.DS_Store
+.idea
+.cache
+pip-log.txt
+/*.egg-info
+/build
+/cover
+/dist
+coverage
