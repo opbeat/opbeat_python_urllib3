@@ -39,6 +39,7 @@ tests_require = [
 
 
 install_requires = [
+    'certifi',
     'opbeat>=3.1.4',
     'urllib3',
 ]
