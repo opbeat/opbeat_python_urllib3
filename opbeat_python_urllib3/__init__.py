@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
+import certifi
 import urllib3
 from urllib3.exceptions import MaxRetryError, TimeoutError
-
-try:
-    import certifi
-    ca_certs = certifi.where()
-except ImportError:
-    ca_certs = None
 
 
 from opbeat.conf import defaults
 from opbeat.transport.base import TransportException
 from opbeat.transport.http import AsyncHTTPTransport, HTTPTransport
+
+
+ca_certs = certifi.where()
 
 
 class Urllib3Transport(HTTPTransport):
