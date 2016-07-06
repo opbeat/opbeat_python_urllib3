@@ -61,6 +61,12 @@ class Urllib3Transport(HTTPTransport):
 class AsyncUrllib3Transport(AsyncHTTPTransport, Urllib3Transport):
     scheme = ['http', 'https']
     async_mode = True
+    http = urllib3.PoolManager(
+        cert_reqs='CERT_REQUIRED' if ca_certs else 'CERT_NONE',
+        ca_certs=ca_certs,
+        maxsize=2,
+        block=True,
+    )
 
     def send_sync(self, data=None, headers=None, success_callback=None,
                   fail_callback=None):
