@@ -26,7 +26,7 @@ import os
 from setuptools import setup, find_packages, Extension
 from setuptools.command.test import test as TestCommand
 
-VERSION = '1.0'
+VERSION = '1.1'
 
 
 tests_require = [
